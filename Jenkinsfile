@@ -16,7 +16,7 @@ pipeline {
             steps {
                 withSonarQubeEnv(installationName: 'SonarqubeScan') {
                     sh "npm install sonar-scanner"
-                    sh 'npx sonar-scanner -X -X -Dsonar.projectKey=mywebapp'
+                    sh 'npx sonar-scanner -X -X -Dsonar.projectKey=SampleJenkins'
                 }
             }
         }
