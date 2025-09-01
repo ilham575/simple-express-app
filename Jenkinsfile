@@ -4,16 +4,16 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                git 'https://github.com/aeff60/simple-express-app.git'
-                bat "npm install"
+                git 'https://github.com/ilham575/simple-express-app.git'
+                sh "npm install"
             }
         }
 
         stage('Scan') {
             steps {
                 withSonarQubeEnv(installationName: 'sq1') {
-                    bat "npm install sonar-scanner"
-                    bat 'npx sonar-scanner -X -X -Dsonar.projectKey=mywebapp'
+                    sh "npm install sonar-scanner"
+                    sh 'npx sonar-scanner -X -X -Dsonar.projectKey=mywebapp'
                 }
             }
         }
