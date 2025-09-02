@@ -10,6 +10,17 @@ app.use((req, res, next) => {
   next();
 });
 
+// Simple function
+function sum(a, b) {
+  return a + b;
+}
+
+app.get("/sum", (req, res) => {
+  const { a, b } = req.query;
+  const result = sum(Number(a), Number(b));
+  res.send(`Sum: ${result}`);
+});
+
 // Route handling
 app.get("/", (req, res) => {
   res.send("Hello World!");
